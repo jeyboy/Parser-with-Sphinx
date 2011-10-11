@@ -1,0 +1,7 @@
+%div
+  %p= link_to "Назад", news_index_path
+%p.title= @news_item.title
+%br/
+%p= raw @news_item.body
+%div.bottom_link
+  %p= link_to "Назад", news_index_path
