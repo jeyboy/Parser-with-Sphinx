@@ -10,7 +10,7 @@ class NewsController < ApplicationController
 
   def load
     Parse.parse_link('habrahabr.ru/')
-    redirect_to :index
+    redirect_to :root
   end
 
   protected

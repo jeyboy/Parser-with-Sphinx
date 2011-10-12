@@ -6,8 +6,71 @@
  *= require_tree . 
 */
 
+ol
+{
+    margin: 0;
+    padding: 10px;
+}
+
+ol li
+{
+    list-style-type: none;
+    margin-bottom: 8px;
+    border-bottom: dotted 2px;
+}
+
+ol li:last-child
+{
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.container
+{
+    border: 3px dotted #FFFFFF;
+    border-radius: 8px 8px 8px 8px;
+}
+
 body
+{
+    margin: 0px;
+    color: SeaShell;
+}
+
+#body_content
 {
     margin: 0 auto;
     width : 960px;
+    background: url('Site-Background.jpg') repeat center 0
+}
+
+.pagination
+{
+    border-top: DeepSkyBlue dotted 2px;
+    margin: 40px 0;
+    padding: 10px 0;
+}
+
+.top_menu_item
+{
+    float: left;
+    margin: 0 10px;
+}
+
+.clear
+{clear : both;}
+
+#search_form
+{
+    float: right;
+}
+
+a
+{
+    color: #FFFFFF;
+}
+
+.side_panel
+{
+    width: 220px;
 }

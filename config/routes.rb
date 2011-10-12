@@ -5,7 +5,8 @@ SphinksTest::Application.routes.draw do
   get "news/show/:id", :as => :show_news, :to => "news#show"
   get "news/load"
 
-  get "seacrh", :to => "search#index"
+  get "search", :to => "search#index"
+  get "search/:topic", :to => 'search#by_topic', :as => :search_by_param
   root :to => "news#index"
 
   # The priority is based upon order of creation:

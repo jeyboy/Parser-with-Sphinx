@@ -3,14 +3,35 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .title
  {
-     color: red;
      font-size: 20px;
      font-weight: bold;
      border-bottom: 3px solid;
-     border-top: 3px solid #000000;
+     border-top: 3px solid #FFFFFF;
  }
 
  .bottom_link
  {
-    border-top: 3px solid #000000;
+    border-top: 3px solid #FFFFFF;
+ }
+
+ .side_menu_item
+ {
+    font-size : 12px;
+ }
+
+  .side_menu_item a
+ {
+    text-decoration : none;
+ }
+
+ td
+ {
+    vertical-align: top;
+ }
+
+ .flow_button
+ {
+    position: fixed;
+    top : 100px;
+    left : 50px;
  }

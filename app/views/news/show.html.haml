@@ -1,5 +1,6 @@
-%div
-  %p= link_to "Назад", news_index_path
+.flow_button
+  =link_to image_tag('images.jpeg'), news_index_path
+
 %p.title= @news_item.title
 %br/
 %p= raw @news_item.body

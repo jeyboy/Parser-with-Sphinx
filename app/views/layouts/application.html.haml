@@ -9,10 +9,11 @@
     = stylesheet_link_tag :application
     = csrf_meta_tag
   %body
-    = render :partial => 'layouts/title'
-    = form_for :search, :url => seacrh_path, :method => 'GET' do |f|
-      = f.label 'search'
-      = f.text_field 'search'
-      = f.submit 'Search'
-
-    = yield
+    #body_content
+      = render :partial => 'layouts/title'
+      %table.content
+        %tr
+          %td.side_panel
+            = render :partial => 'layouts/side_menu', :locals => {:items => @categories}
+          %td
+            = yield
