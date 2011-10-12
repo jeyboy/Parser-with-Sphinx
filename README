@@ -20,9 +20,156 @@ Install Sphinx
 		pg_config --pkgincludedir
 
 Download project
-	git clone 
+	git clone git@github.com:jeyboy/Parser-with-Sphinx.git
 
 Install PG
+    Introduction
+
+    PostgreSQL is a powerful object-relational database management system, provided under a flexible BSD-style license.[1] PostgreSQL contains many advanced features, is very fast and standards compliant.
+
+    PostgreSQL has bindings for many programming languages such as C, C++, Python, Java, PHP, Ruby... It can be used to power anything from simple web applications to massive databases with millions of records.
+
+    Installation
+
+    Dapper
+
+    To install PostgreSQL 8.1 you may use the command line and type:
+
+        sudo apt-get install postgresql-8.1
+
+    Hardy
+
+    Install the latest Postgresql 8.3 from the command line with the following command:
+
+        sudo apt-get install postgresql
+
+    Karmic, Lucid, Intrepid and Maverick
+
+    To install Postgresql 8.4 you may use the command line and type:
+
+        sudo apt-get install postgresql
+
+    Administration
+
+    pgAdmin III is a handy GUI for PostgreSQL, it is essential to beginners. To install it, type at the command line:
+
+        sudo apt-get install pgadmin3
+
+    You may also use the Synaptic package manager from the System>Administration menu to install these packages.
+
+    Basic Server Setup
+
+    To start off, we need to change the PostgreSQL postgres user password; we will not be able to access the server otherwise. As the “postgres” Linux user, we will execute the psql command.
+
+    In a terminal, type:
+
+    Dapper
+
+        sudo -u postgres psql template1
+
+    Karmic, Lucid, Intrepid and Maverick
+
+        sudo -u postgres psql postgres
+
+    Set a password for the "postgres" database role using the command:
+
+        \password postgres
+
+    and give your password when prompted. The password text will be hidden from the console for security purposes.
+
+    Type Control+D to exit the posgreSQL prompt.
+
+    Create database
+
+    To create the first database, which we will call "mydb", simply type:
+
+        sudo -u postgres createdb mydb
+
+Install RVM
+
+    1. Download and run the RVM installation script
+        Installing the latest release version in git:
+
+            user$ bash < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer )
+
+        For a Multi-User install you would execute the following:
+
+            user$ sudo bash < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer )
+
+        Note: All multi-user install instructions must be prefixed with the 'sudo' command.
+
+        Installing a specific version:
+
+            user$ curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer -o rvm-installer ; chmod +x rvm-installer ; ./rvm-installer --version latest
+
+        For a Multi-User install you would do:
+
+            user$ curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer -o rvm-installer ; chmod +x rvm-installer ; sudo ./rvm-installer --version latest
+
+        Single-User Install Location: ~/.rvm/
+
+        If the install script is run as a standard, non-root user, RVM will install into the current users's home directory.
+        Multi-User Install Location: /usr/local/rvm
+
+        If the install script is run prefixed with sudo, RVM will automatically install into /usr/local/rvm Please see the troubleshooting page for an important note regarding Multi-User Installs.
+
+        If the rvm install script does nothing or complains about certificates you can bypass this by adding a '-k' switch to the curl command:
+
+        For Single-User installs
+
+            user$ bash < <(curl -sk https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)
+
+        Please see the FAQ page for an important note regarding root only installs
+
+        For a Multi-User install you would do:
+
+            user$ sudo bash < <(curl -sk https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)
+
+    2. Load RVM into your shell sessions as a function
+        Throughout these instructions, you may replace .bash_profile with the appropriate startup script for your bash-compatible shell. For other shells you may need to modify these commands. Zsh should be able to use these commands unmodified.
+        Single-User:
+
+        Load RVM by appending the rvm function sourcing to your .bash_profile:
+
+            user$ echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function' >> ~/.bash_profile
+
+        Multi-User:
+
+        The rvm function will be automatically configured for every user on the system if you install as root. This is accomplished by loading /etc/profile.d/rvm.sh on login. Most Linux distributions default to parsing /etc/profile which contains the logic to load all files residing in the /etc/profile.d/ directory. Once you have added the users you want to be able to use RVM to the rvm group, those users MUST log out and back in to gain rvm group membership because group memberships are only evaluated by the operating system at initial login time.
+    3. Reload shell configuration & test
+        Close out your current shell or terminal session and open a new one. You may attempt reloading your .bash_profile with the following command:
+
+            user$ source .bash_profile
+
+        However, closing out your current shell or terminal and opening a new one is the preferred way for initial installations.
+
+        If installation and configuration were successful, RVM should now load whenever you open a new shell. This can be tested by executing the following command which should output 'rvm is a function' as shown below.
+
+            user$ type rvm | head -1
+        rvm is a function
+
+    4. Install a version of Ruby (eg 1.9.2):
+        user$ rvm install 1.9.2
+    5. Create gemset
+        user$ rvm gemset create Sph
+        user$ rvm use ruby-1.9.2-pxxx@Sph --default
+        user$ gem install bundler
+        user$ cd path_to_project
+        user$ bundle install
+
+DataBase manipulation
+    user$ rake db:create
+    user$ rake db:migrate
+Launch
+    user$ rails s
+
+    In browser open
+        localhost:3000
+
+
+
+
+
 	
 
 
