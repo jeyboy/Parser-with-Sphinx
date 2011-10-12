@@ -28,7 +28,10 @@ ol li:last-child
 .container
 {
     border: 3px dotted #FFFFFF;
-    border-radius: 8px 8px 8px 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    behavior: url(path/to/PIE.htc);
 }
 
 body
@@ -41,7 +44,8 @@ body
 {
     margin: 0 auto;
     width : 960px;
-    background: url('Site-Background.jpg') repeat center 0
+    min-height: 600px;
+    background: url('background-site.jpg') repeat center 0
 }
 
 .pagination
@@ -59,6 +63,11 @@ body
 
 .clear
 {clear : both;}
+
+#header
+{
+    background: url('background-title.jpeg') repeat-y center 0
+}
 
 #search_form
 {

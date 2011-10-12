@@ -8,8 +8,13 @@ class NewsController < ApplicationController
     @news_item = News.find_by_id(params[:id])
   end
 
+  def load_last
+    Parse.parse_last()
+    redirect_to :root
+  end
+
   def load
-    Parse.parse_link('habrahabr.ru/')
+    Parse.parse_all()
     redirect_to :root
   end
 

@@ -1,0 +1,3 @@
+%ol.container
+  -items.each do |item|
+    %li.side_menu_item= link_to item.title, search_by_param_path(item.to_param)

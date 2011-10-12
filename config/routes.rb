@@ -4,6 +4,7 @@ SphinksTest::Application.routes.draw do
   get "news/index"
   get "news/show/:id", :as => :show_news, :to => "news#show"
   get "news/load"
+  get "news/load_last"
 
   get "search", :to => "search#index"
   get "search/:topic", :to => 'search#by_topic', :as => :search_by_param
