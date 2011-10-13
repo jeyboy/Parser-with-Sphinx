@@ -1,0 +1,13 @@
+#header.container
+  %ul#primary_menu
+    %li.top_menu_item= link_to 'Parse', news_load_path
+    %li.top_menu_item= link_to 'Parse last', news_load_last_path
+    %li.top_menu_item First
+    %li.top_menu_item Second
+    %li.top_menu_item Thirds
+  .clear
+
+  = form_for :search, :url => search_path, :method => 'GET', :html => {:id => 'search_form'} do |f|
+    = f.text_field 'search', :size => '20'
+    = f.submit 'Search'
+  .clear

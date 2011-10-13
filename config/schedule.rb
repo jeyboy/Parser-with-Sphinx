@@ -21,13 +21,9 @@
 
 every :reboot do
   rake "thinking_sphinx:start"
+  rake "data:parse"
 end
 
-every 10.minute do
-  rake "thinking_sphinx:rebuild"
-end
-
-every 1.minute do
-  rake "thinking_sphinx:reindex"
-  command "touch 111"
+every 1.hour do
+  rake "data:parse_last"
 end

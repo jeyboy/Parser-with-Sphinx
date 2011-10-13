@@ -1,3 +1,4 @@
 %ol.container
+  -selected == -1 ? items.empty? ? selected : items.first.id : selected
   -items.each do |item|
-    %li.side_menu_item= link_to item.title, search_by_param_path(item.to_param)
+    %li.side_menu_item{:class=>(selected == item.id ? "selected_category" : "")}= link_to item.title, search_by_param_path(item.to_param)

@@ -7,4 +7,6 @@ class News < ActiveRecord::Base
 
     set_property :min_prefix_len => 2
   end
+
+  validates :title , :body, :presence => true
 end

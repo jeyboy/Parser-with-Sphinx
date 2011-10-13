@@ -51,8 +51,7 @@ body
 .pagination
 {
     border-top: DeepSkyBlue dotted 2px;
-    margin: 40px 0;
-    padding: 10px 0;
+    color: Gold;
 }
 
 .top_menu_item
@@ -82,4 +81,9 @@ a
 .side_panel
 {
     width: 220px;
+}
+
+.selected_category a
+{
+    color : Gold;
 }

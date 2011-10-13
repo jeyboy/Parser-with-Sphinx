@@ -1,7 +1,7 @@
 !!!
 %html{:dir => "ltr", :xmlns => "http://www.w3.org/1999/xhtml"}
   %head
-    %title Sphinks
+    %title Sphinx
     %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}
     %meta{:content => "", :name => "keywords"}/
     %meta{:content => "", :name => "description"}/
@@ -10,10 +10,11 @@
     = csrf_meta_tag
   %body
     #body_content
-      = render :partial => 'layouts/title'
+      = render :partial => 'layouts/header'
       %table.content
         %tr
           %td.side_panel
-            = render :partial => 'layouts/side_menu', :locals => {:items => @categories}
+            = render :partial => 'layouts/side_menu', :locals => {:items => @categories, :selected => @curr_category }
           %td
             = yield
+      = render :partial => 'layouts/footer'
