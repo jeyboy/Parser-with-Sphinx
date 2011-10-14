@@ -1,14 +1,23 @@
 SphinksTest::Application.routes.draw do
 
+  root :to => "news#index"
+
+  resources :search , :only => [:index] do
+    get 'by_topic', :on => :member, :as => 'topic'
+    get 'by_request', :on => :collection, :as => 'request'
+  end
+
+  resources :categories, :only => [] do
+    resources :topics, :only => [] do
+      get 'news', :on => :member, :to => 'search#by_topic'
+    end
+  end
 
   get "news/index"
   get "news/show/:id", :as => :show_news, :to => "news#show"
   get "news/load"
   get "news/load_last"
 
-  get "search", :to => "search#index"
-  get "search/:topic", :to => 'search#by_topic', :as => :search_by_param
-  root :to => "news#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

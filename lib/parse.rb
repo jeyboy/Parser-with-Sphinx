@@ -122,7 +122,6 @@ module Parse
   def self.blog_list_parse(link)
     p link
     doc = Nokogiri::HTML(DataByURL(link))
-    #doc.css("li.blog-row > div.blog > a").each { |href| parse_regular(href.text, href.attr('href')) }
     doc.css("li.blog-row").each do |href|
       follow =  href.css('div.blog > a')
       parse_regular(href.css('div.category > a').text, follow.text, follow.attr('href').text)

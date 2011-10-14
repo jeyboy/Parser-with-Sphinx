@@ -7,7 +7,7 @@
     %li.top_menu_item Thirds
   .clear
 
-  = form_for :search, :url => search_path, :method => 'GET', :html => {:id => 'search_form'} do |f|
+  = form_for :search, :url => request_search_index_path, :method => 'GET', :html => {:id => 'search_form'} do |f|
     = f.text_field 'search', :size => '20'
     = f.submit 'Search'
   .clear

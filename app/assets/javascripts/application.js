@@ -7,3 +7,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+function changeSelected(elem)
+{
+    var oElem = elem.parent().next();
+    oElem.slideToggle();
+}

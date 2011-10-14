@@ -1,4 +1,8 @@
 %ol.container
-  -selected == -1 ? items.empty? ? selected : items.first.id : selected
   -items.each do |item|
-    %li.side_menu_item{:class=>(selected == item.id ? "selected_category" : "")}= link_to item.title, search_by_param_path(item.to_param)
+    %li.side_menu_item= link_to item.title, "#", :html => {:remote => true}, :onclick => "changeSelected($(this))"
+    %ol.subcontainer{:id => "#{"cat"+item.id.to_s}",:class=>(selected_category != item.id ? "hidden_block" : "selected_category")}
+      -item.topics.each do |topic|
+        %li.side_menu_item{:class=>(selected_topic == topic.id ? "selected_topic" : "")}= link_to topic.title, news_category_topic_path(item,topic)
+
+

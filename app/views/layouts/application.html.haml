@@ -9,12 +9,13 @@
     = stylesheet_link_tag :application
     = csrf_meta_tag
   %body
-    #body_content
-      = render :partial => 'layouts/header'
-      %table.content
-        %tr
-          %td.side_panel
-            = render :partial => 'layouts/side_menu', :locals => {:items => @categories, :selected => @curr_category }
-          %td
-            = yield
+    #body_content.container
+      #content
+        = render :partial => 'layouts/header'
+        %table.content
+          %tr
+            %td.side_panel
+              = render :partial => 'layouts/side_menu', :locals => {:items => @categories, :selected_category => @curr_category, :selected_topic => @curr_topic }
+            %td.container
+              = yield
       = render :partial => 'layouts/footer'

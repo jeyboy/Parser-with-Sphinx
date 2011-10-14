@@ -42,10 +42,15 @@ body
 
 #body_content
 {
+    width : 960px;
     margin: 0 auto;
+    background: url('background-site.jpg') repeat center 0
+}
+
+#content
+{
     width : 960px;
     min-height: 600px;
-    background: url('background-site.jpg') repeat center 0
 }
 
 .pagination
@@ -83,7 +88,12 @@ a
     width: 220px;
 }
 
-.selected_category a
+.selected_topic a
 {
     color : Gold;
+}
+
+.hidden_block
+{
+    display: none;
 }
