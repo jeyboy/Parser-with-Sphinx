@@ -1,6 +1,9 @@
-class Category < ActiveRecord::Base
-  has_many :topics, :dependent => :destroy
-  has_many :news, :through =>  :topics
+class Category
+  include Mongoid::Document
+  include Mongoid::Timestamps::Created
 
-  validates :title ,:presence => true
+  field :title, :type => String, :required => true
+
+  has_many :topics, :dependent => :destroy
+  has_many :news
 end

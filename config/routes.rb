@@ -1,5 +1,11 @@
 SphinksTest::Application.routes.draw do
 
+  get "twit/index"
+
+  get "twit/new"
+
+  get "twit/create"
+
   root :to => "news#index"
 
   resources :search , :only => [:index] do

@@ -2,18 +2,31 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.1.0'
 
+gem 'twitter'
+
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
+
+######### Mongo
+gem 'mongo', :git => 'git://github.com/mongodb/mongo-ruby-driver.git'
+gem "mongoid"
+gem 'mongo_mapper'
+gem 'riddle'
+gem 'bson'
+gem 'bson_ext'
+gem 'mongosphinx', :git => 'https://github.com/burke/mongosphinx.git'
+#########
+
 gem 'curb'
 gem 'nokogiri'
-gem 'pg'
+#gem 'pg'
 gem 'therubyracer'
 gem 'will_paginate', '~> 3.0.pre4'
 
-gem 'thinking-sphinx',
-  :git     => 'git://github.com/freelancing-god/thinking-sphinx.git',
-  :branch  => 'rails3'
+#gem 'thinking-sphinx',
+#  :git     => 'git://github.com/freelancing-god/thinking-sphinx.git',
+#  :branch  => 'rails3'
 
 gem 'whenever', :require => false
 gem 'haml-rails'

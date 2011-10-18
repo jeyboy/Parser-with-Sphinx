@@ -5,7 +5,7 @@ class NewsController < ApplicationController
   end
 
   def show
-    @news_item = News.find_by_id(params[:id])
+    @news_item = News.where(:_id => params[:id]).first
   end
 
   def load_last
@@ -20,7 +20,7 @@ class NewsController < ApplicationController
 
   protected
   def init
-    @news = News.order('created_at ASC').paginate(:page => params[:page], :per_page => 15)
+    @news = News.all.paginate(:page => params[:page], :per_page => 15)
   end
 
 end

@@ -83,17 +83,22 @@ a
     color: #FFFFFF;
 }
 
-.side_panel
-{
-    width: 220px;
-}
-
 .selected_topic a
 {
-    color : Gold;
+    color : #daa520;
+}
+
+.selected_category a
+{
+    color : #daa520;
 }
 
 .hidden_block
 {
     display: none;
+}
+
+.content
+{
+    width : 749px;
 }

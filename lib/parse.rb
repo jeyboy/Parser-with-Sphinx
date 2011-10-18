@@ -25,19 +25,19 @@ module Parse
     #  end
     #end
 
-    cat = Category.includes(:topics).find_by_title(category)
+    cat = Category.where(:title => category).first
     unless cat
       cat = Category.new({:title => category})
       cat.save
     end
 
-    topic = Topic.find_by_category_id_and_title(cat.id, topic_title)
+    topic = Topic.where(:category_id => cat.id, :title => topic_title).first
     unless topic
       topic = Topic.new({:category_id => cat.id, :title => topic_title})
       topic.save
     end
 
-    if !News.find_by_topic_id_and_title(topic.id, title)
+    if News.where(:topic_id => topic.id, :title => title).empty?
       text = Nokogiri::HTML(DataByURL(page_link))
       body = text.css("div.post > div.content").to_html
       News.new({:topic_id => topic.id, :title => title, :body => body}).save
@@ -47,8 +47,12 @@ module Parse
   def self.Page_count(link)
     data = DataByURL(link)
     last_item = Nokogiri::HTML(data).css('#nav-pages > li').last
-    num = last_item.text.to_i
-    num = last_item.css('noindex > a').first.attr('href').scan(/\d+/).last.to_i if (num.to_s != last_item.text)
+    unless last_item
+      num = last_item.text.to_i
+      num = last_item.css('noindex > a').first.attr('href').scan(/\d+/).last.to_i if (num.to_s != last_item.text)
+    else
+      num=0
+    end
     num
   end
 
@@ -89,24 +93,14 @@ module Parse
 
   def self.parse_links_regular(category, topic, links)
     iterator=0
-    m = Curl::Multi.new
+    easy_options = {:follow_location => true, :connect_timeout => nil}
 
     loop do
-      10.times do
-        break if iterator >= links.length
-
-        m.add(
-            Curl::Easy.new(links[iterator]) do |curl|
-              curl.follow_location = false
-              curl.connect_timeout = nil
-              curl.on_complete { |easy| Open_link_regular(category, topic, easy.body_str); p easy.url }
-            end
-        )
-
-        iterator+=1
+      url_fields = links[iterator..(iterator+=10)-1]
+      Curl::Multi.get(url_fields, easy_options) do|easy|
+        Open_link_regular(category, topic, easy.body_str)
+        p easy.url
       end
-
-      m.perform
       break if iterator >= links.length
     end
   end

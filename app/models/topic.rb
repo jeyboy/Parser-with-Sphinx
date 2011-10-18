@@ -1,12 +1,17 @@
-class Topic < ActiveRecord::Base
+class Topic
+  include Mongoid::Document
+  include Mongoid::Timestamps::Created
+  #extend ThinkingSphinx::ActiveRecord::ClassMethods
+
+  field :title, :type => String, :required => true
+
   has_many :news, :dependent => :destroy
-  belongs_to :topic
+  belongs_to :category
 
-  define_index do
-    indexes title
+  key :title, :category_id, :required => true
 
-    set_property :min_prefix_len => 2
-  end
-
-  validates :title ,:presence => true
+  #define_index do
+  #  indexes title
+  #  set_property :min_prefix_len => 2
+  #end
 end

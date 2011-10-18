@@ -12,10 +12,10 @@
     #body_content.container
       #content
         = render :partial => 'layouts/header'
-        %table.content
+        %table
           %tr
             %td.side_panel
               = render :partial => 'layouts/side_menu', :locals => {:items => @categories, :selected_category => @curr_category, :selected_topic => @curr_topic }
-            %td.container
+            %td.content.container
               = yield
       = render :partial => 'layouts/footer'
