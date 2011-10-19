@@ -1,0 +1,2 @@
+class TCanvasController < ApplicationController
+end

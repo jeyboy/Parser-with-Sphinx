@@ -6,7 +6,7 @@ class SearchController < ApplicationController
   end
 
   def by_request
-    @news = (params[:search] ? News.search(params[:search][:search], :page => params[:page], :per_page => 15, :match_mode => :extended2 ) : News.all.paginate(:page => params[:page], :per_page => 15))
+    @news = (params[:search] ? News.search(params[:search][:search]) : News.all).paginate(:page => params[:page], :per_page => 15)
     render 'news/index'
   end
 end

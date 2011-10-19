@@ -11,11 +11,10 @@ gem 'twitter'
 ######### Mongo
 gem 'mongo', :git => 'git://github.com/mongodb/mongo-ruby-driver.git'
 gem "mongoid"
-gem 'mongo_mapper'
 gem 'riddle'
 gem 'bson'
 gem 'bson_ext'
-gem 'mongosphinx', :git => 'https://github.com/burke/mongosphinx.git'
+#gem 'mongoid-sphinx',:require => 'mongoid_sphinx', :git => 'https://github.com/redbeard-tech/mongoid-sphinx.git'
 #########
 
 gem 'curb'

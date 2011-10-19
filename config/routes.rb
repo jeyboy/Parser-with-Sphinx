@@ -1,9 +1,9 @@
 SphinksTest::Application.routes.draw do
 
+  get "t_canvas/index"
+
   get "twit/index"
-
   get "twit/new"
-
   get "twit/create"
 
   root :to => "news#index"
