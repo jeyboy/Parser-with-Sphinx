@@ -4,7 +4,7 @@
     %li.top_menu_item= link_to 'Parse last', news_load_last_path
     %li.top_menu_item= link_to 'Twits', twit_index_path
     %li.top_menu_item= link_to 'Canvas', t_canvas_index_path
-    %li.top_menu_item Thirds
+    %li.top_menu_item= link_to 'Graphics and diagrams', t_canvas_build_path
   .clear
 
   = form_for :search, :url => request_search_index_path, :method => 'GET', :html => {:id => 'search_form'} do |f|

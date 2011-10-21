@@ -1,6 +1,7 @@
 SphinksTest::Application.routes.draw do
 
   get "t_canvas/index"
+  get "t_canvas/build"
 
   get "twit/index"
   get "twit/new"

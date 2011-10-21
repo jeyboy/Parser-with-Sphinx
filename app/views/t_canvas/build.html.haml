@@ -1,0 +1,14 @@
+%table.graphic_data
+  %tr.table_header
+    %th Name
+    %th Value
+  %tr.element
+    %td= text_field_tag :name, "a", {:class => "item_name"}
+    %td= text_field_tag :value,"1",{:onkeyup => "checkValue(this);", :class => "item_value"}
+
+= link_to_function "Add item", "copyObject();"
+%div
+  = select_tag :graphic_type, options_for_select(["radar","pie","bar","line"],"chart")
+  = button_to_function "Build", "drawGraphics($('#graphic_type').val());"
+
+#graphics.content{:style => "height : 500px;"}

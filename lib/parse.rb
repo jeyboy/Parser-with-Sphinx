@@ -35,7 +35,7 @@ module Parse
     doc = Nokogiri::HTML(data)
     doc.css("div.post").each do |href|
       all = href.css('h2 > a')
-      Add_News(all[0].text, "Last", all[1].text, all[1].attr('href'))
+      Add_News("Last", all[0].text, all[1].text, all[1].attr('href'))
     end
   end
 
