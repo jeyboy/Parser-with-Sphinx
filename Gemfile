@@ -14,8 +14,10 @@ gem "mongoid"
 gem 'riddle'
 gem 'bson'
 gem 'bson_ext'
-#gem 'mongoid-sphinx',:require => 'mongoid_sphinx', :git => 'https://github.com/redbeard-tech/mongoid-sphinx.git'
+gem 'mongoid-sphinx',:require => 'mongoid_sphinx', :git => 'git@github.com:jeyboy/mongoid-sphinx.git'
 #########
+
+gem 'devise'
 
 gem 'curb'
 gem 'nokogiri'
@@ -23,9 +25,7 @@ gem 'nokogiri'
 gem 'therubyracer'
 gem 'will_paginate', '~> 3.0.pre4'
 
-#gem 'thinking-sphinx',
-#  :git     => 'git://github.com/freelancing-god/thinking-sphinx.git',
-#  :branch  => 'rails3'
+gem 'thinking-sphinx', :git => 'git://github.com/freelancing-god/thinking-sphinx.git', :branch  => 'rails3'
 
 gem 'whenever', :require => false
 gem 'haml-rails'

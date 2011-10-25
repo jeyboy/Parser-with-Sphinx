@@ -5,5 +5,5 @@ class Category
   field :title, :type => String, :required => true
 
   has_many :topics, :dependent => :destroy
-  has_many :news
+  has_many :newses
 end

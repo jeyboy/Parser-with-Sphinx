@@ -70,12 +70,23 @@ body
 
 #header
 {
-    background: url('background-title.jpeg') repeat-y center 0
+    background: url('background-title.jpeg') repeat-y center 0;
+    height: 50px;
 }
 
-#search_form
+.search_div
 {
-    float: right;
+    padding-top: 5px;
+}
+
+.header_left
+{
+    float : left;
+}
+
+.header_right
+{
+    float:right;
 }
 
 a

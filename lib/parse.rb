@@ -68,7 +68,6 @@ module Parse
 
   def self.parse_links_regular(category, topic, links)
     iterator=0
-    easy_options = {:follow_location => true, :connect_timeout => nil}
     m = Curl::Multi.new
 
     loop do

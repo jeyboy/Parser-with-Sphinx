@@ -36,3 +36,44 @@
     left : 50%;
     margin: 0 0 0 -585px;
  }
+
+
+ .comment_message
+ {
+    border-bottom: 2px dotted #FFFFFF;
+ }
+
+ .check_ruby
+ {
+    width : 30px;
+    height : 30px;
+    background : url('ruby.png');
+    float:left;
+ }
+
+ .uncheck_ruby
+ {
+    width : 30px;
+    height : 30px;
+    background : url('unruby.png');
+    float:left;
+ }
+
+ .left_text
+ {
+     float:left;
+     color : #FFFFFF;
+     padding: 0 15px 0 0;
+ }
+
+ .star_container
+ {
+    width : 160px;
+    float: left;
+ }
+
+ .substar_container
+ {
+    width : 150px;
+    padding : 5px;
+ }

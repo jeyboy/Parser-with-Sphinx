@@ -1,0 +1,21 @@
+.flow_button
+  =link_to image_tag('images.jpeg'), news_category_topic_path(:category_id => @curr_category, :id => @curr_topic)
+
+%p.title= @news_item.title
+%br/
+%p= raw @news_item.body
+
+- if user_signed_in?
+  .container
+    %p.left_text #{"Насколько интересная статья ?"}
+    .container.star_container
+      .substar_container= raw ruby_line(@news_item.id, current_user.id, @gem_num)
+    .clear
+
+%div.bottom_link
+  %p= link_to "Назад", news_category_topic_path(:category_id => @curr_category, :id => @curr_topic)
+
+#comments
+  -@news_item.comments.each do |comment|
+    =render :partial => 'comments/show', :locals => {:comment => comment}
+=render :partial => 'comments/form', :locals => {:news_id => @news_item.id}
