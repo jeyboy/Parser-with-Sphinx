@@ -1,5 +1,7 @@
 class Comment
   include Mongoid::Document
+  include Mongoid::Timestamps::Created
+
   field :user, :type => String
   field :message, :type => String
 
@@ -7,5 +9,5 @@ class Comment
 
   belongs_to :newses
 
-  validates :news_id, :presence => true
+  validates :news_id, :user, :message, :presence => true
 end

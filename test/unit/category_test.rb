@@ -1,7 +1,17 @@
-require 'test_helper'
+require File.expand_path(File.dirname(__FILE__) + '/../../spec/spec_helper')
 
-class CategoryTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
-end
+  describe Category do
+    before(:each) do
+      @category = Factory(:category)
+    end
+    it "@category should be valid" do
+      @category.should be_valid
+    end
+    describe "associations" do
+      it "should embed many topics" do
+        association = Category.associations['topics']
+        association.klass.should == (Topic)
+        association.association.should ==(Mongoid::Associations::EmbedsMany)
+      end
+    end
+  end

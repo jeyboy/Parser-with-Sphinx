@@ -2,9 +2,8 @@
   %ol#side_menu.scrollable()
     -items.each do |item|
       - is_selected = selected_category != item.id.to_s
-      %li.side_menu_item{:class => (!is_selected ? "selected_category" : "")}= link_to item.title, "#", :html => {:remote => true}, :onclick => "changeSelected($(this))"
-      %ol.subcontainer{:id => "#{"cat"+item.id.to_s}",:class=>(is_selected ? "hidden_block" : "")}
-        -item.topics.each do |topic|
-          %li.side_menu_item{:class=>(selected_topic == topic.id.to_s ? "selected_topic" : "")}= link_to topic.title, news_category_topic_path(item,topic)
-
-
+      %li.side_menu_item{:class => (!is_selected ? "selected_category" : "")}
+        = link_to item.title, "#", :html => {:remote => true}, :onclick => "changeSelected($(this))"
+        %ol.container{:id => "#{"cat"+item.id.to_s}",:class=>(is_selected ? "hidden_block" : "")}
+          -item.topics.each do |topic|
+            %li.side_menu_item{:class=>(selected_topic == topic.id.to_s ? "selected_topic" : "unselected_topic")}= link_to topic.title, news_category_topic_path(item,topic)

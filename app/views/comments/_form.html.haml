@@ -5,4 +5,4 @@
     =f.submit 'Send', :onclick => "sendComment('#{comments_create_path}', '#{(current_user ? current_user.id : -1) .to_s}',
                                    $('#comment_attr_message').val(), '#{news_id.to_s}'); return false;"
 - else
-  You must authorize or authenticate for posting comments
+  You must registrates and/or authorize for posting comments

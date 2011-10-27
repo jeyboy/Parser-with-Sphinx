@@ -7,7 +7,7 @@ development:
   pool: 5
   timeout: 5000
 
-test:
+test: &test
   adapter: postgresql
   database: sphinx_test
   username: postgres
@@ -24,3 +24,6 @@ production:
   host: localhost
   pool: 5
   timeout: 5000
+
+cucumber:
+  <<: *test

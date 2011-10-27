@@ -1,7 +1,8 @@
-require 'test_helper'
+require File.expand_path(File.dirname(__FILE__) + '/../../spec/spec_helper')
 
 class TopicTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  describe Topic do
+    it { should have_many :newses }
+    it { should belong_to :category }
+  end
 end

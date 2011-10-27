@@ -3,12 +3,12 @@ class Topic
   include Mongoid::Timestamps::Created
   include Mongoid::Sphinx
 
-  field :title, :type => String, :required => true
+  field :title, :type => String
 
   has_many :newses, :dependent => :destroy
   belongs_to :category
 
-  #key :title, :category_id, :required => true
-
   search_index(:fields => [:title], :attributes => [])
+
+  validates :title, :presence => true, :uniqueness => {:scope => :category_id}
 end

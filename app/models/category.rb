@@ -1,9 +1,10 @@
 class Category
   include Mongoid::Document
-  include Mongoid::Timestamps::Created
+  #include Mongoid::Timestamps::Created
 
-  field :title, :type => String, :required => true
+  field :title, :type => String
 
   has_many :topics, :dependent => :destroy
-  has_many :newses
+
+  validates :title, :presence => true, :uniqueness => true
 end

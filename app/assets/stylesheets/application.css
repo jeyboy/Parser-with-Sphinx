@@ -99,9 +99,19 @@ a
     color : #daa520;
 }
 
+.unselected_topic a
+{
+    color : #ffffff !important;
+}
+
 .selected_category a
 {
     color : #daa520;
+}
+
+.selected_category
+{
+    border: none;
 }
 
 .hidden_block

@@ -11,7 +11,7 @@
   %div.header_right
     %div.auth_div
       - unless user_signed_in?
-        =link_to 'Authenticate', new_user_registration_path
+        =link_to 'Registrate', new_user_registration_path
         or
         =link_to 'authorize', new_user_session_path
       - else

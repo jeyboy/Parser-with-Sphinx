@@ -1,14 +1,14 @@
 function sendComment(path, user, message, news_id)
 {
     $.ajax( {
-                type : 'POST',
+                type : 'GET',
                 url : path,
                 data :{'comment_attr' : {'user' : user, 'message' : message, 'news_id' : news_id}},
                 success: function(response){
                      if (response.state)
                      {
                          $('#comment_attr_message').val("");
-                         $('#comments').append(response.content);
+                         $('#comments').append(response.comment);
                      }
                 }
             }
@@ -18,22 +18,15 @@ function sendComment(path, user, message, news_id)
 function sendRating(elem, news_id, user_id)
 {
     var childs = $(elem).parent().children();
-    var under = true;
     var gem = 1;
 
     for(var l = 0;l < childs.length - 1; l++)
     {
-        if (under)
-            $(childs[l]).addClass('check_ruby').removeClass('uncheck_ruby');
-        else
-            $(childs[l]).addClass('uncheck_ruby').removeClass('check_ruby');
-
-        if (under)
+        if (childs[l] == elem)
         {
-            under = (childs[l] != elem);
             gem=l+1;
+            break;
         }
-
     }
 
     $.ajax({
@@ -43,7 +36,13 @@ function sendRating(elem, news_id, user_id)
         success: function (response) {
            if (response.state)
            {
-
+               for(var l = 0;l < childs.length - 1; l++)
+               {
+                   if (l<gem)
+                       $(childs[l]).addClass('check_ruby').removeClass('uncheck_ruby');
+                   else
+                       $(childs[l]).addClass('uncheck_ruby').removeClass('check_ruby');
+               }
            }
         }
     });

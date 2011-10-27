@@ -10,8 +10,11 @@
 //= require_tree .
 
 function changeSelected(elem) {
-    var oElem = elem.parent().next();
-    oElem.slideToggle();
+    var parent = elem.parent().parent();
+    var oElem = elem.next();
+    var oe = $(elem.parent()).detach();
+    parent.prepend(oe);
+    $(oElem).slideToggle();
 }
 
 //$(document).ready(function() {

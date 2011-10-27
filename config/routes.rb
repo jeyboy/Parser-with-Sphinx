@@ -1,6 +1,6 @@
 SphinksTest::Application.routes.draw do
 
-  post "comments/create"
+  get "comments/create"
 
   devise_for :admins
 
@@ -15,7 +15,7 @@ SphinksTest::Application.routes.draw do
 
   root :to => "newses#index"
 
-  resources :search , :only => [:index] do
+  resources :search do
     get 'by_topic', :on => :member, :as => 'topic'
     get 'by_request', :on => :collection, :as => 'request'
   end
