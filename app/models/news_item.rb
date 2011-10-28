@@ -5,9 +5,6 @@ class NewsItem
 
   field :title, :type => String
   field :body,  :type => String
-  field :news_id, :type => String
-
-  #key :topic_id, :title, :required => true
 
   belongs_to :topic
   has_many :comments, :dependent => :destroy
