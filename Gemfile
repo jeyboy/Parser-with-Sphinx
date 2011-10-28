@@ -51,16 +51,17 @@ gem 'jquery-rails'
 
 group :test, :development do
   gem 'rspec-rails'
-  gem 'cucumber-rails'
+  gem 'mongoid-rspec'
 end
 
 group :test do
   # Pretty printed test output
   gem 'turn', :require => false
-  gem 'shoulda'
+  #gem 'shoulda'
+  gem 'cucumber-rails'
   gem 'capybara'
   gem 'database_cleaner'
   gem 'factory_girl_rails'
-  gem 'webrat'
+  #gem 'webrat'
   gem 'minitest'
 end

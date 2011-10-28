@@ -12,10 +12,10 @@ module Parse
       topic.save
     end
 
-    if News.where(:topic_id => topic.id, :title => title).empty?
+    if NewsItem.where(:topic_id => topic.id, :title => title).empty?
       text = Nokogiri::HTML(DataByURL(page_link))
       body = text.css("div.post > div.content").to_html
-      News.new({:topic_id => topic.id, :title => title, :body => body}).save
+      NewsItem.new({:topic_id => topic.id, :title => title, :body => body}).save
     end
   end
 

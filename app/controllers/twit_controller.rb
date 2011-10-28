@@ -7,7 +7,7 @@ class TwitController < ApplicationController
   end
 
   def create
-    Twitter.update(params[:twit])
+    #Twitter.update(params[:twit])
   end
 
 end

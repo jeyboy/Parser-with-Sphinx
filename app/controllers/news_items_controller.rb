@@ -1,4 +1,4 @@
-class NewsesController < ApplicationController
+class NewsItemsController < ApplicationController
   before_filter :init, :only => [:index]
   before_filter :authenticate_user!, :only => [:change_rating]
 
@@ -6,9 +6,9 @@ class NewsesController < ApplicationController
   end
 
   def show
-    @news_item = News.includes(:comments).where(:_id => params[:id]).first
-    @gem = Rating.where({:user_id => current_user.id.to_s, :news_id => @news_item.id}).first if (user_signed_in?)
-    @gem_num = @gem ? @gem.gems : 1;
+    @news_item = NewsItem.includes(:comments).where(:_id => params[:id]).first
+    gem = Rating.where({:user_id => current_user.id.to_s, :news_id => @news_item.id}).first if (user_signed_in?)
+    @gem_num = gem ? gem.gems : 1
   end
 
   def load_last
@@ -28,7 +28,7 @@ class NewsesController < ApplicationController
 
   protected
   def init
-    @news = News.all.paginate(:page => params[:page], :per_page => 15)
+    @news = NewsItem.all.paginate(:page => params[:page], :per_page => 15)
   end
 
 end

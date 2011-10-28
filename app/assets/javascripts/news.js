@@ -32,7 +32,7 @@ function sendRating(elem, news_id, user_id)
     $.ajax({
         type : 'GET',
         data : {'rating_attr' : {'user_id' : user_id, 'news_id' : news_id, 'gems' : gem}},
-        url  : "/newses/change_rating",
+        url  : "/news_items/change_rating",
         success: function (response) {
            if (response.state)
            {

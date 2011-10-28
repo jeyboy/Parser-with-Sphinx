@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(:version => 20111013103136) do
     t.datetime "updated_at"
   end
 
-  create_table "newses", :force => true do |t|
+  create_table "news_items", :force => true do |t|
     t.string   "title"
     t.text     "body"
     t.datetime "created_at"

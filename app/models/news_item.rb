@@ -1,4 +1,4 @@
-class News
+class NewsItem
   include Mongoid::Document
   include Mongoid::Timestamps::Created
   include Mongoid::Sphinx
@@ -10,7 +10,7 @@ class News
   #key :topic_id, :title, :required => true
 
   belongs_to :topic
-  has_many :comments
+  has_many :comments, :dependent => :destroy
 
   validates :title, :body, :presence => true
 

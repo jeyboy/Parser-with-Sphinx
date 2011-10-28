@@ -1,6 +1,6 @@
 class CreateNews < ActiveRecord::Migration
   def change
-    create_table :newses do |t|
+    create_table :news_items do |t|
       t.string :title
       t.text :body
       t.timestamps

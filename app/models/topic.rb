@@ -5,7 +5,7 @@ class Topic
 
   field :title, :type => String
 
-  has_many :newses, :dependent => :destroy
+  has_many :news_items, :dependent => :destroy
   belongs_to :category
 
   search_index(:fields => [:title], :attributes => [])
