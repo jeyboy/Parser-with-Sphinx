@@ -2,7 +2,7 @@
   %p Add comment
   =form_for :comment_attr, :html => {:remote => true} do |f|
     =f.text_area :message, {:rows => "5"}
-    =f.submit 'Send', :onclick => "sendComment('#{comments_create_path}', '#{(current_user ? current_user.id : -1) .to_s}',
+    =f.submit 'Send', :onclick => "sendComment('#{comments_create_path}', '#{current_user.user_name}',
                                    $('#comment_attr_message').val(), '#{news_id.to_s}'); return false;"
 - else
   You must registrates and/or authorize for posting comments

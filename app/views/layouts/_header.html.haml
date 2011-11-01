@@ -1,11 +1,8 @@
 #header.container
   %div.header_left
-    %ul#primary_menu
-      %li.top_menu_item= link_to 'Parse', news_items_load_path
-      %li.top_menu_item= link_to 'Parse last', news_items_load_last_path
-      %li.top_menu_item= link_to 'Twits', twit_index_path
-      %li.top_menu_item= link_to 'Canvas', t_canvas_index_path
-      %li.top_menu_item= link_to 'Graphics and diagrams', t_canvas_build_path
+    =header_menu([['Parse', news_items_load_path], ['Parse last', news_items_load_last_path],
+     ['Twits', twit_index_path], ['Canvas', t_canvas_index_path], ['Graphics and diagrams',
+      t_canvas_build_path], ['Gallery', '#']])
     .clear
 
   %div.header_right
@@ -15,7 +12,9 @@
         or
         =link_to 'authorize', new_user_session_path
       - else
-        =link_to 'exit', destroy_user_session_path, :method => "DELETE"
+        %span Hello #{current_user.user_name}
+        ||
+        =link_to 'Exit', destroy_user_session_path, :method => "DELETE"
 
     %div.search_div
       = form_for :search, :url => request_search_index_path, :method => 'GET', :html => {:id => 'search_form'} do |f|

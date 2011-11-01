@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :init_categories, :check_category, :check_topic
+  before_filter :init_categories, :check_category, :check_topic, :curr_page
   require 'will_paginate/array'
 
   protected
@@ -8,23 +8,25 @@ class ApplicationController < ActionController::Base
     @categories = Category.includes(:topics).all
   end
 
-  def check_topic
-    m = request.fullpath.scan(/\/topics\/([^\/]+)/)
+  def check_obj(obj_pattern,obj_name)
+    m = request.fullpath.scan(/\/#{obj_pattern}\/([^\/]+)/)
     if m.empty?
-      @curr_topic = cookies.has_key?('curr_topic') ? cookies['curr_topic'] : "";
+      cookies[obj_name] || ""
     else
-      @curr_topic = CGI::unescape(m.last.last)
-      cookies['curr_topic'] = @curr_topic
+      cookies['curr_page'] = '1'
+      cookies[obj_name] = CGI::unescape(m.last.last)
     end
   end
 
+  def curr_page
+    cookies['curr_page'] = @curr_page = params[:page] || cookies['curr_page'] || '1'
+  end
+
+  def check_topic
+    @curr_topic = check_obj('topics', 'curr_topic')
+  end
+
   def check_category
-    m = request.fullpath.scan(/\/categories\/([^\/]+)/)
-    if m.empty?
-      @curr_category = cookies.has_key?('curr_category') ? cookies['curr_category'] : "";
-    else
-      @curr_category = CGI::unescape(m.last.last)
-      cookies['curr_category'] = @curr_category
-    end
+    @curr_category = check_obj('categories', 'curr_category')
   end
 end

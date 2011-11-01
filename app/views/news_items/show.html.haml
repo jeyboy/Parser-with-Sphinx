@@ -1,5 +1,5 @@
 .flow_button
-  =link_to image_tag('images.jpeg'), news_category_topic_path(:category_id => @curr_category, :id => @curr_topic)
+  =link_to image_tag('images.jpeg'), news_category_topic_path(:category_id => @curr_category, :id => @curr_topic, :page => @curr_page)
 
 %p.title= @news_item.title
 %br/
@@ -12,9 +12,7 @@
       .substar_container= raw ruby_line(@news_item.id, current_user.id, @gem_num)
     .clear
 
-%div.bottom_link
-  %p= link_to "Назад", news_category_topic_path(:category_id => @curr_category, :id => @curr_topic)
-
+%p Comments
 #comments
   -@news_item.comments.each do |comment|
     =render :partial => 'comments/show', :locals => {:comment => comment}

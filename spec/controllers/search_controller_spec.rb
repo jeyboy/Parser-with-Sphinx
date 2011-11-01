@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe SearchController do
 
-  before (:all) do
+  before (:each) do
     @topic = Factory(:topic)
   end
 

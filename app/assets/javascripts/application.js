@@ -9,7 +9,12 @@
 //= require jquery.tools.min
 //= require_tree .
 
-function changeSelected(elem) {
+$(document).ready(function() {
+  changeSelected($('li.selected_category > a'))
+})
+
+
+function changeSelected(elem, toogle) {
     var parent = elem.parent().parent();
     var oElem = elem.next();
     var oe = $(elem.parent()).detach();

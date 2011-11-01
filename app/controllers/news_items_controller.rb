@@ -28,7 +28,11 @@ class NewsItemsController < ApplicationController
 
   protected
   def init
-    @news = NewsItem.all.paginate(:page => params[:page], :per_page => 15)
+    if @curr_topic.blank? || @curr_category.blank?
+      @news = NewsItem.all.paginate(:page => params[:page], :per_page => 15)
+    else
+      redirect_to news_category_topic_path(:category_id => @curr_category, :id => @curr_topic)
+    end
   end
 
 end

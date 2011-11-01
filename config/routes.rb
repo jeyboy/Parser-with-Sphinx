@@ -14,7 +14,7 @@ SphinksTest::Application.routes.draw do
 
   root :to => "news_items#index"
 
-  resources :search do
+  resources :search, :only => [] do
     get 'by_topic', :on => :member, :as => 'topic'
     get 'by_request', :on => :collection, :as => 'request'
   end

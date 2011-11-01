@@ -8,6 +8,7 @@ class NewsItem
 
   belongs_to :topic
   has_many :comments, :dependent => :destroy
+  has_many :ratings, :dependent => :destroy
 
   validates :title, :body, :presence => true
 

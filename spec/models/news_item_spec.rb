@@ -11,6 +11,10 @@ describe NewsItem do
 
   describe "associations" do
     it "should embed many comments" do
+      should have_many :ratings
+    end
+
+    it "should embed many comments" do
       should have_many :comments
     end
 

@@ -3,7 +3,7 @@ function sendComment(path, user, message, news_id)
     $.ajax( {
                 type : 'GET',
                 url : path,
-                data :{'comment_attr' : {'user' : user, 'message' : message, 'news_id' : news_id}},
+                data :{'comment_attr' : {'user' : user, 'message' : message, 'news_item_id' : news_id}},
                 success: function(response){
                      if (response.state)
                      {
