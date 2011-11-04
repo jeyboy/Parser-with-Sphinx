@@ -39,6 +39,16 @@ module SphinksTest
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
+    #config.autoload_paths += %W(#{config.root}/lib)
+    #config.autoload_paths += Dir["#{config.root}/lib/**/"]
+    #
+    #config.generators do |g|
+    #  g.test_framework :rspec, :views => false, :fixture => true
+    #  g.fixture_replacement :factory_girl, :dir => 'spec/factories'
+    #  g.form_builder :simple_form
+    #  g.template_engine :haml
+    #end
+
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
 

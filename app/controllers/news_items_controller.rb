@@ -2,6 +2,19 @@ class NewsItemsController < ApplicationController
   before_filter :init, :only => [:index]
   before_filter :authenticate_user!, :only => [:change_rating]
 
+  #def new
+  #  @news_item = NewsItem.new
+  #end
+  #
+  #def create
+  #  @news_item = NewsItem.new(params[:news_item_attr])
+  #  if @news_item.save
+  #    redirect_to news_items_index_path, :notice => "News successfully created"
+  #  else
+  #    render :new
+  #  end
+  #end
+
   def index
   end
 

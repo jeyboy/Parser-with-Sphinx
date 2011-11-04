@@ -1,5 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  layout 'user_application'
+
+
   before_filter :init_categories, :check_category, :check_topic, :curr_page
   require 'will_paginate/array'
 
@@ -8,7 +11,7 @@ class ApplicationController < ActionController::Base
     @categories = Category.includes(:topics).all
   end
 
-  def check_obj(obj_pattern,obj_name)
+  def check_obj(obj_pattern, obj_name)
     m = request.fullpath.scan(/\/#{obj_pattern}\/([^\/]+)/)
     if m.empty?
       cookies[obj_name] || ""

@@ -25,9 +25,16 @@ SphinksTest::Application.routes.draw do
     end
   end
 
+
   get "news_items/index"
   get "news_items/show/:id", :as => :show_news, :to => "news_items#show"
   get "news_items/load"
   get "news_items/load_last"
   get "news_items/change_rating"
+
+  namespace :admins do
+    resources :news_items, :only => [:new, :create, :show, :index, :edit, :destroy]
+  end
+
+  match '/admin' => 'admins/news_items#index'
 end

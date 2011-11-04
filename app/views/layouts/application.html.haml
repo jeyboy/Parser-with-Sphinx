@@ -1,21 +1,36 @@
 !!!
-%html{:dir => "ltr", :xmlns => "http://www.w3.org/1999/xhtml"}
+%html
   %head
     %title Sphinx
-    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}
-    %meta{:content => "", :name => "keywords"}/
-    %meta{:content => "", :name => "description"}/
-    = javascript_include_tag :application
-    = stylesheet_link_tag :application
+    = stylesheet_link_tag 'web_app_theme'
+    = javascript_include_tag :defaults, :cache => true
     = csrf_meta_tag
   %body
-    #body_content.container
-      #content
-        = render :partial => 'layouts/header'
-        %table
-          %tr
-            %td.side_panel
-              = render :partial => 'layouts/side_menu', :locals => {:items => @categories, :selected_category => @curr_category, :selected_topic => @curr_topic }
-            %td.content.container
-              = yield
-      = render :partial => 'layouts/footer'
+    #container
+      #header
+        %h1
+          %a{:href => "/"} Sphinx
+        #user-navigation
+          %ul.wat-cf
+            %li
+              %a{:href => "#"}= t("web-app-theme.profile", :default => "Profile")
+            %li
+              %a{:href => "#"}= t("web-app-theme.settings", :default => "Settings")
+            %li
+              %a.logout{:href => "/logout"}= t("web-app-theme.logout", :default => "Logout")
+        #main-navigation
+          %ul.wat-cf
+      #wrapper.wat-cf
+        .flash
+          - flash.each do |type, message|
+            %div{:class => "message #{type}"}
+              %p= message
+        #main
+          = yield
+        #sidebar
+          = yield :sidebar
+        .clear
+        #footer
+          .block
+            %p
+              Copyright &copy; #{Time.now.year} Sphinx.

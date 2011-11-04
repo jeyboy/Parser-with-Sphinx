@@ -15,6 +15,7 @@ function sendComment(path, user, message, news_id)
     );
 }
 
+
 function sendRating(elem, news_id, user_id)
 {
     var childs = $(elem).parent().children();

@@ -1,5 +1,5 @@
 // Place all the styles related to the News controller here.
-// They will automatically be included in application.css.
+// They will automatically be included in user_application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .title
  {
@@ -47,7 +47,7 @@
  {
     width : 30px;
     height : 30px;
-    background : url('ruby.png');
+    background : url('../ruby.png');
     float:left;
  }
 
@@ -55,7 +55,7 @@
  {
     width : 30px;
     height : 30px;
-    background : url('unruby.png');
+    background : url('../unruby.png');
     float:left;
  }
 
@@ -77,4 +77,15 @@
  {
     width : 150px;
     padding : 5px;
+ }
+
+ pre
+ {
+    color : #000;
+    background : #FFF;
+ }
+
+ blockquote
+ {
+    background : #FFF;
  }

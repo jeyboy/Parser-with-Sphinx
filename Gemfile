@@ -2,11 +2,12 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.1.0'
 
+gem 'mongrel', '> 1.beta'
+
 gem 'twitter'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
-
 
 ######### Mongo
 gem 'mongo', :git => 'git://github.com/mongodb/mongo-ruby-driver.git'
@@ -29,6 +30,10 @@ gem 'thinking-sphinx', :git => 'git://github.com/freelancing-god/thinking-sphinx
 
 gem 'whenever', :require => false
 gem 'haml-rails'
+
+gem 'web-app-theme', '~> 0.8.0'
+gem 'hpricot'
+gem 'ruby_parser'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -55,13 +60,14 @@ group :test, :development do
 end
 
 group :test do
+  gem 'minitest'
   # Pretty printed test output
-  gem 'turn', :require => false
+  #gem 'turn', :require => false
   #gem 'shoulda'
-  gem 'cucumber-rails'
+  gem "cucumber-rails", ">= 1.0.2"
+  #gem 'mongoid-cucumber'
   gem 'capybara'
   gem 'database_cleaner'
   gem 'factory_girl_rails'
-  #gem 'webrat'
-  gem 'minitest'
+  gem 'webrat'
 end
