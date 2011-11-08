@@ -13,11 +13,26 @@ class Admins::NewsItemsController < Admins::AdminsController
     end
   end
 
+  def edit
+    @news_item = NewsItem.where(:_id => params[:id]).first
+  end
+
   def index
     @news_items = NewsItem.all.paginate(:page => params[:page], :per_page => 15)
   end
 
   def show
     @news_item = NewsItem.where(:_id => params[:id]).first
+  end
+
+  def update
+    @news_item = NewsItem.where(:_id => params[:id]).first
+    @news_item.update_attributes(params[:news_item])
+    redirect_to admins_news_items_path, :notice => "Object updated"
+  end
+
+  def destroy
+    NewsItem.where(:id => params[:id]).destroy
+    redirect_to admins_news_items_path, :notice => "Object deleted"
   end
 end

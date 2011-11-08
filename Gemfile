@@ -64,10 +64,11 @@ group :test do
   # Pretty printed test output
   #gem 'turn', :require => false
   #gem 'shoulda'
-  gem "cucumber-rails", ">= 1.0.2"
+  gem "cucumber-rails", "~>1.0.6"
   #gem 'mongoid-cucumber'
   gem 'capybara'
   gem 'database_cleaner'
   gem 'factory_girl_rails'
   gem 'webrat'
+  gem 'launchy'
 end

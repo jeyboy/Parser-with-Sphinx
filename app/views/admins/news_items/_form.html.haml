@@ -8,7 +8,7 @@
   %span.description Ex: a simple text
 .group
   = f.label :body, t("activerecord.attributes.news_item.body", :default => "Body"), :class => :label
-  = f.text_area :body, :class => 'text_field'
+  = f.text_area :body, {:class => 'text_field', :style => "width : 100%"}
   %span.description Ex: a text block
 .group.navform.wat-cf
   %button.button{:type => "submit"}

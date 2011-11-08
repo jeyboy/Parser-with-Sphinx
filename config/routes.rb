@@ -33,7 +33,7 @@ SphinksTest::Application.routes.draw do
   get "news_items/change_rating"
 
   namespace :admins do
-    resources :news_items, :only => [:new, :create, :show, :index, :edit, :destroy]
+    resources :news_items
   end
 
   match '/admin' => 'admins/news_items#index'
